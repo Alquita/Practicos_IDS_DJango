@@ -5,6 +5,8 @@
 {% block body %}
     <h1 class="font-lg flex justify-center text-xl font-bold">Cursos</h1>
     
+    <a href="{% url 'crear_curso' %}">Crear nuevo curso</a>
+
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6 m-3">
         
         {% for curso in cursos %}
@@ -13,13 +15,17 @@
                     <div class="p-5">
                         <h5 class="font-semibold flex justify-center"> {{ curso.nombre }} </h5>
                         <br>
-                        <p>Duracion: {{ curso.duracion }} meses</p>
+                        <p>Duracion: {{ curso.duracion }} semanas</p>
                         <br>
                         <p>Precio: {{curso.precio}}</p>
                         <br>
                         <p>Nivel: {{curso.nivel}}</p>
                         <br>
                         <p>Modalidad: {{curso.modalidad}}</p>
+                        <br>
+                        <a href="{% url 'editar_curso' curso.id %}">Editar Curso</a>
+                        |
+                        <a href="{% url 'eliminar_curso' curso.id %}">Eliminar Curso</a>
                     </div>
                     <a href="#" class="bg-blue-600 text-white p-2 rounded flex justify-top">Ver más</a>
                 </article>
@@ -28,13 +34,15 @@
                     <div class="p-5">
                         <h5 class="font-semibold flex justify-center"> {{ curso.nombre }} (Sin cupos) </h5>
                         <br>
-                        <p>Duracion: {{ curso.duracion }} meses</p>
+                        <p>Duracion: {{ curso.duracion }} semanas</p>
                         <br>
                         <p>Precio: {{curso.precio}}</p>
                         <br>
                         <p>Nivel: {{curso.nivel}}</p>
                         <br>
                         <p>Modalidad: {{curso.modalidad}}</p>
+                        <br>
+                        <a href="{% url 'editar_curso' curso.id %}">Editar Curso</a>
                     </div>
                     <a href="#" class="bg-zinc-800 text-white p-2 rounded flex justify-top">Ver más</a>
                 </article>
