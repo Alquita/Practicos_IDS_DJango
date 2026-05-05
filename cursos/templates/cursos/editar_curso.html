@@ -1,0 +1,14 @@
+{% extends './base.html' %}
+
+{% block title %} Editar Curso {% endblock %}
+
+{% block body %}
+    <h1>Editar Curso</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Editar</button>
+    </form>
+{% endblock %}
