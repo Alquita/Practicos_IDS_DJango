@@ -3,16 +3,25 @@
 {% block title %} Eliminar Curso {% endblock %}
 
 {% block body %}
-    <h1>Borrar Curso</h1>
-    
-    <form method="post">
-        {% csrf_token %}
-        <div>Estas seguro de que quieres eliminar esta tarea</div>
-        <h3>
-            {{ curso }}
-        </h3>
+    <div class="px-8 py-3 gap-6">
 
-        <button type="submit">Si, Eliminar</button>
-        <a href="{% url 'cursos' %}">No, cancelar</a>
-    </form>
+        <h1>Borrar Curso</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="font-semibold py-2 text-xl">Estas seguro de que quieres eliminar este curso</div>
+            <h3 class="py-2 text-md pb-4">
+                {{ curso.nombre }}
+            </h3>
+
+            <button 
+            type="submit" 
+            class="text-left border border-black px-2 rounded-lg bg-green-600 w-fit">
+            Si, Eliminar</button>
+            <a 
+            href="{% url 'cursos' %}" 
+            class="text-left border border-black px-2 rounded-lg bg-red-600 w-fit">
+            No, cancelar</a>
+        </form>
+    </div>
 {% endblock %}

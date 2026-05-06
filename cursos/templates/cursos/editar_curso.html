@@ -3,12 +3,17 @@
 {% block title %} Editar Curso {% endblock %}
 
 {% block body %}
-    <h1>Editar Curso</h1>
+    <div class="px-8 py-3 gap-6">
+        <h1 class="font-semibold py-2 text-xl">Editar Curso</h1>
+        
+        <form method="post" class="grid gap-4">
+            {% csrf_token %}
+            {{ form.as_p }}
     
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit">Editar</button>
-    </form>
+            <button 
+            type="submit"
+            class="text-left border border-black px-2 rounded-lg bg-green-600 w-fit">
+            Editar</button>
+        </form>
+    </div>
 {% endblock %}
