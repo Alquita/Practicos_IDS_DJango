@@ -13,7 +13,9 @@
         <div class="">
             <a href="{% url 'index' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Inicio</a>
             <a href="{% url 'cursos' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Cursos</a>
+            {% if user.is_superuser %}
             <a href="{% url 'admin:index' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Admin</a>
+            {% endif %}
         </div>
 
         <div class="flex gap-4 items-center">
