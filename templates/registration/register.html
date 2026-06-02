@@ -1,0 +1,17 @@
+{% extends 'cursos/base.html'%}
+
+{% block body %}
+<div class="px-8 py-3 gap-6">
+  <h1 class="font-semibold py-2 text-xl">Crearse una nueva cuenta</h1>
+  <form method="post" enctype="multipart/form-data" class="grid gap-4">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="text-left border border-black px-2 rounded-lg bg-green-600 w-fit">
+      Registrarse
+    </button>
+  </form>
+</div>
+
+{% endblock %}
