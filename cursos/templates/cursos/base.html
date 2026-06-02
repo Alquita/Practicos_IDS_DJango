@@ -16,21 +16,22 @@
             <a href="{% url 'admin:index' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Admin</a>
         </div>
 
-        <div class="flex gap-4">
+        <div class="flex gap-4 items-center">
             {% if user.is_authenticated %}
             {%if user.foto_perfil%}
             <img src="{{user.foto_perfil.url}}" alt="foto de perfil de {{user.username}}"
             class="rounded-full size-8 ">
             {% else %}
-            <p alt="foto de perfil de {{user.username}}" class="rounded-full size-8 bg-white">
+            <p alt="foto de perfil de {{user.username}}" class="rounded-full size-8 border">
             {%endif%}
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Cerrar sesion</button>
+                <button type="submit" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Cerrar sesion</button>
             </form>
             {% else %}
-            <a href="{% url 'login' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Iniciar
-                sesión</a>
+            <a href="{% url 'login' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">
+                Iniciar sesión
+            </a>
             {% endif %}
         </div>
 
